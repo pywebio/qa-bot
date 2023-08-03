@@ -64,7 +64,7 @@ def main():
     put_markdown("""
     # PyWebIO QA Bot 🤖️
     Ask a question about PyWebIO, then it will give you the related github issues and discussions and try to 
-    answer your question from PyWebIO doc.
+    answer your question from PyWebIO doc. [[Github]](https://github.com/pywebio/qa-bot)
     """)
     openai_config = chatgpt.get_openai_config()
     question = textarea(rows=3,
