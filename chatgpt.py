@@ -137,6 +137,8 @@ def get_openai_config():
         ])
         openai_config['api_base'] = openai_config['api_base'].removesuffix('/v1').strip('/') + '/v1'
         pywebio_battery.set_localstorage('openai_config', json.dumps(openai_config))
+
+    put_button('Reset OpenAI API Key', reset_openai_config, link_style=True)
     return openai_config
 
 
@@ -156,7 +158,6 @@ def main():
     put_select('model', ['gpt-3.5-turbo', 'gpt-4'], label='Model')
 
     openai_config = get_openai_config()
-    put_button('Reset OpenAI API Key', reset_openai_config, link_style=True)
 
     bot = ChatGPT(api_key=openai_config['api_key'], api_base=openai_config['api_base'], model=pin.model)
     while True:
